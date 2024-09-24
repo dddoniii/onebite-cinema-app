@@ -1,3 +1,7 @@
+import style from "./page.module.css";
+import movies from "@/mock/dummy.json";
+import MovieItem from "@/components/movie-item";
+
 export default function Page({
   searchParams,
 }: {
@@ -6,8 +10,10 @@ export default function Page({
   };
 }) {
   return (
-    <div>
-      <h3>검색 페이지 : {searchParams.q}</h3>
+    <div className={style.search_container}>
+      {movies.map((movie) => (
+        <MovieItem key={movie.id} {...movie} />
+      ))}
     </div>
   );
 }
