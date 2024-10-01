@@ -17,7 +17,9 @@ async function AllMovies() {
 
   const allMovies: MovieData[] = await response.json();
 
-  return allMovies.map((movie) => <MovieItem key={movie.id} {...movie} />);
+  return allMovies.map((movie) => (
+    <MovieItem key={`all-${movie.id}`} {...movie} />
+  ));
 }
 
 async function RecoMovies() {
@@ -32,7 +34,9 @@ async function RecoMovies() {
 
   const recoMovies: MovieData[] = await response.json();
 
-  return recoMovies.map((movie) => <MovieItem key={movie.id} {...movie} />);
+  return recoMovies.map((movie) => (
+    <MovieItem key={`reco-${movie.id}`} {...movie} />
+  ));
 }
 
 export default function Home() {
